@@ -10,13 +10,18 @@ function GuessInput() {
       setGuess('')
     }}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input id="guess-input" type="text" value={guess} onChange={(e) => {
-        let guess = e.target.value
-        if (guess.length > 0) {
-          guess = guess.toUpperCase()
-        }
-        setGuess(guess)
-      }}/>
+      <input
+          id="guess-input"
+          type="text"
+          value={guess}
+          minLength={5}
+          maxLength={5}
+          title="5 letter word"
+          pattern="[a-zA-Z]{5}"
+          onChange={(e) => {
+            let guess = e.target.value.toUpperCase()
+            setGuess(guess)
+          }}/>
     </form>
   </div>;
 }
