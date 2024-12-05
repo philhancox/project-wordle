@@ -2,7 +2,7 @@ import React from 'react';
 import '../../constants';
 import {GUESS_LENGTH} from "../../constants";
 
-function GuessInput({ addGuess }) {
+function GuessInput({ addGuess, gameComplete }) {
   const [guess, setGuess] = React.useState('')
 
   return <div>
@@ -24,7 +24,9 @@ function GuessInput({ addGuess }) {
           onChange={(e) => {
               let guess = e.target.value.toUpperCase()
               setGuess(guess)
-          }}/>
+          }}
+          disabled={gameComplete}
+      />
     </form>
   </div>;
 }
