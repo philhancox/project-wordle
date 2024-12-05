@@ -1,7 +1,9 @@
 import React from 'react';
 
 function GameKeyboardKey({ status, children }) {
-  return <span className={`key ${status}`}>
+  const style = status === undefined ? 'key' : `key ${status}`;
+
+  return <span className={style}>
     {children}
   </span>;
 }
